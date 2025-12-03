@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kirim Pesan</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button id="toggleDark"
+    style="position:fixed;
+          top: 20px;
+          right:20px;
+          width:50px;
+          height:50px;
+          border-radius; 50%
+          background;#2196f3;
+          color:white;
+          border: none:
+          font-size:24px;
+          display: flex:
+          justify-content: center;
+          align-items:center;
+        ">🌙</button>
+        
+  <div class="container">
+  <h2>Kirim Pesan</h2>
+
+  <input id="senderName" type="text" placeholder="Nama kamu kalo maww">
+  <textarea id="senderMessage" rows="4" placeholder="Kasi gwa info rahasia bray"></textarea>
+
+  <button id="sendBtn">Kirim</button>
+  <p id="status" style="margin-top:
+  15px; text-align:center;"></p>
+  </div>
+
+  <!-- Firebase config -->
+  <script type="module" src="firebase.js"></script>
+
+  <!-- Logika Pengiriman Pesan -->
+  <script type="module" src="send.js"></script>
+  
+  <!-- dark theme -->
+ <script>
+  const toggleBtn = document.getElementById("toggleDark");
+  const body = document.body;
+
+  // Load mode sebelumnya
+  if (localStorage.getItem("mode") === "dark") {
+    body.classList.add("dark");
+  }
+
+  toggleBtn.addEventListener("click", () => {
+    body.classList.toggle("dark");
+    
+    if (body.classList.contains("dark")) {
+      localStorage.setItem("mode", "dark");
+    } else {
+      localStorage.setItem("mode", "light");
+    }
+  });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inbox Pesan</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <button id="toggleDark"
+    style="position:fixed;
+          top: 20px;
+          right:20px;
+          width:50px;
+          height:50px;
+          border-radius; 50%
+          background;#2196f3;
+          color:white;
+          border: none:
+          font-size:24px;
+          display: flex:
+          justify-content: center;
+          align-items:center;
+        ">🌙</button>
+        <div class="container">
+  <h2>Inbox Pesan</h2>
+<br>
+  <div id="messageList">
+    <p>Memuat pesan...</p>
+  </div>
+
+  <!-- Firebase Core -->
+  <script type="module" src="firebase.js"></script>
+
+  <!-- Script untuk load inbox -->
+  <script type="module" src="inbox.js"></script>
+ <script>
+  const toggleBtn = document.getElementById("toggleDark");
+  const body = document.body;
+
+  // Load mode sebelumnya
+  if (localStorage.getItem("mode") === "dark") {
+    body.classList.add("dark");
+  }
+
+  toggleBtn.addEventListener("click", () => {
+    body.classList.toggle("dark");
+    
+    if (body.classList.contains("dark")) {
+      localStorage.setItem("mode", "dark");
+    } else {
+      localStorage.setItem("mode", "light");
+    }
+  });
+  </script>
+
+</body>
+</html>
