@@ -6,7 +6,7 @@ document.getElementById("generate").addEventListener("click", () => {
     return;
   }
 
-  const link = `${window.location.origin}/send.html?u=${encodeURIComponent(user)}`;
+  const link = `${window.location.origin}/Private-message/send.html?u=${encodeURIComponent(user)}`;
 
   document.getElementById("result").innerHTML = `
     <p>Link kamu:</p>
